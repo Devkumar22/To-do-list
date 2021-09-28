@@ -1,4 +1,3 @@
-<<<<<<< Updated upstream
 //jshint esversion:6
 
 const express = require("express");
@@ -6,33 +5,13 @@ const bodyParser = require("body-parser");
 
 const app = express();
 
-app.get("/", function(req, res){
-
-    var today=new Date();
-    if(today.getDay() === 6 || today.getDay() === 0){
-        res.send("<h1>Yay it's the weekend</h1>");
-    }
-    else{
-        res.write("<h1>Boo! I have to work</h1>");
-        res.write("<p> It's Not the Weekend</p>");
-        res.send;
-    }
-
-});
+var items = ["Buy food",  "Cook food", "Eat food"];
 
 
-app.listen(3000, function(){
-    console.log("serrver started on port 3000");
-});
-=======
-//jshint esversion:6
-
-const express = require("express");
-const bodyParser = require("body-parser");
-
-const app = express();
 
 app.set('view engine', 'ejs');
+
+app.use(bodyParser.urlencoded({extended: true}));
 
 app.get("/", function(req, res){
 
@@ -48,13 +27,20 @@ app.get("/", function(req, res){
 
     
     res.render("list", {
-        kindofDay: day
+        kindofDay: day,
+        newListItem: items
     });
 
 });
+
+app.post("/", function(req, res){
+    var item = req.body.newItem;
+    items.push(item);
+
+    res.redirect("/");
+})
 
 
 app.listen(3000, function(){
     console.log("serrver started on port 3000");
 });
->>>>>>> Stashed changes
