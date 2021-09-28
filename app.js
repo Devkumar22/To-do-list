@@ -50,8 +50,9 @@ app.get("/work", function(req,res){
 });
 
 
-
+//dcdcdcjdc
+//wkdwdwkodwkod
 
 app.listen(3000, function(){
-    console.log("serrver started on port 3000");
+    console.log("server started on port 3000");
 });
