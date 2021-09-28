@@ -31,4 +31,3 @@ app.get("/", function(req, res){
 app.listen(3000, function(){
     console.log("serrver started on port 3000");
 });
->>>>>>> Stashed changes
